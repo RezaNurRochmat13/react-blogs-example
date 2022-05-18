@@ -1,5 +1,7 @@
-import React, {Component} from 'react';
-import ChildComp from './ChildComp';
+import React, { Component } from 'react';
+import style from './Content.module.css';
+import * as styles from './css/Content';
+import { Button, Accordion } from 'react-bootstrap';
 
 export default class Content extends Component {
     constructor(props) {
@@ -20,15 +22,15 @@ export default class Content extends Component {
 
 
     render() {
-        const isStatus = false;
+        // const isStatus = false;
 
-        if (isStatus === true) {
-            console.log('Status is verified');
-        } else {
-            console.log('Status is not verified');
-        };
+        // if (isStatus === true) {
+        //     console.log('Status is verified');
+        // } else {
+        //     console.log('Status is not verified');
+        // };
 
-        return(
+        return (
             <div>
                 {/* Child comp nama, umur, alamat */}
                 Content component is works
@@ -37,9 +39,42 @@ export default class Content extends Component {
                 <h2>Received age {this.props.age}</h2> */}
                 {/* <button onClick={this.akbarMethod}>Click me</button> */}
                 {this.state.numbers.map((val, index) => {
-                    return  <li key={index}>{val}</li>
+                    return <li key={index}>{val}</li>
                 })}
-             </div>
+
+                <div className={style['Module']}>Aku warna biru</div>
+                <p className={style['Content-title']}>Latif suka makan semangka</p>
+                <styles.Button>Halo aku button</styles.Button>
+                <styles.Line>Halo aku line</styles.Line>
+                <Button variant="primary">Submit</Button>
+                <Button variant="danger">Beware</Button>
+                <Accordion defaultActiveKey="0">
+                    <Accordion.Item eventKey="0">
+                        <Accordion.Header>Accordion Item #1</Accordion.Header>
+                        <Accordion.Body>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                            est laborum.
+                        </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="1">
+                        <Accordion.Header>Accordion Item #2</Accordion.Header>
+                        <Accordion.Body>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                            est laborum.
+                        </Accordion.Body>
+                    </Accordion.Item>
+                </Accordion>
+            </div>
         );
     };
 };
