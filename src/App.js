@@ -8,6 +8,7 @@ import {
   Route
 } from 'react-router-dom';
 import About from './components/About';
+import Car from './components/car/Car';
 import Home from './components/Home';
 
 // Class component
@@ -26,6 +27,7 @@ function App() {
             <Route path="/" element={App} />
             <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path='/cars' element={<Car />} />
           </Routes>
         </Router>
         {/* <Footer /> */}
