@@ -6,7 +6,8 @@ export default class Car extends Component {
     constructor() {
         super();
         this.state = {
-            users: []
+            users: [],
+            files: {}
         }
     }
 
@@ -57,9 +58,18 @@ export default class Car extends Component {
         console.info(response.data);
     }
 
+    uploaderFile = (e) => {
+        const formData = new FormData();
+        formData.append('file', e.target.files[0]);
+
+        console.info("Files : ", e);
+        console.info("Only file :", e.target.files[0]);
+    }
+
     render() {
         return (
             <div>
+                <input type='file' onChange={this.uploaderFile} />
                 Car components is works
                 <Button variant='primary' 
                     onClick={this.createNewPosts}>Add new posts
