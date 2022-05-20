@@ -9,7 +9,7 @@ const Auth = () => {
 
     useEffect(() => {
         doGetAllCars();
-    });
+    }, []);
 
     const doAuthentication = (event) => {
         event.preventDefault();
