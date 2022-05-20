@@ -8,9 +8,7 @@ const Auth = () => {
     const [password, setPassword] = useState('');
 
     useEffect(() => {
-        console.info("USING EFFECT HOOK");
-        console.log("LOG VALUE : " + email);
-        console.info("LOG PASSWORD : " + password);
+        doGetAllCars();
     });
 
     const doAuthentication = (event) => {
@@ -22,8 +20,23 @@ const Auth = () => {
         axios.post('http://localhost:8989/auth/signin',
         authObject).then(response => {
             console.info("LOG RESPONSE : ", response.data);
+            const token = response.data.token;
+            localStorage.setItem('TOKEN', token);
         }).catch(err => {
             console.error(err);
+        });
+    }
+    
+    const doGetAllCars = () => {
+        const tokens = localStorage.getItem('TOKEN');
+        axios.get('http://localhost:8989/cars', {
+            headers: {
+                Authorization: 'Bearer ' + tokens
+            }
+        }).then(response => {
+            console.info("RESPONSE : ", response.data);
+        }).catch(err => {
+            alert(err);
         });
     }
 
