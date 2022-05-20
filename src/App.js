@@ -8,6 +8,7 @@ import {
   Route
 } from 'react-router-dom';
 import About from './components/About';
+import Auth from './components/authentication/Auth';
 import Car from './components/car/Car';
 import Home from './components/Home';
 
@@ -25,6 +26,7 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={App} />
+            <Route path='/login' element={<Auth />} />
             <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path='/cars' element={<Car />} />
