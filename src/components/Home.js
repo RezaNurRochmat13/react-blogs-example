@@ -17,8 +17,7 @@ export default class Home extends Component {
                 onSuccess={this.captureResponse} 
                 onFailure={this.captureResponse} 
                 cookiePolicy={'single_host_origin'}
-                responseType='code'
-                redirectUri='http://localhost:3000' />
+                scope='profile' />
             </div>
         );
     }
