@@ -13,6 +13,9 @@ import About from './components/About';
 import Auth from './components/authentication/Auth';
 import Car from './components/car/Car';
 import Home from './components/Home';
+import Todo from './components/todo/Todo';
+import { Provider } from "react-redux";
+import store from "./store";
 
 // Class component
 function App() {
@@ -37,15 +40,18 @@ function App() {
         <p>Latif pro player ayo dance</p>
         {/* <Content name="Nisa" age="21" /> */}
         {/* <Header /> */}
-        <Router>
-          <Routes>
-            <Route path="/" element={App} />
-            <Route path='/login' element={<Auth />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path='/cars' element={<Car />} />
-          </Routes>
-        </Router>
+        <Provider store={store}>
+          <Router>
+            <Routes>
+              <Route path="/" element={App} />
+              <Route path='/login' element={<Auth />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path='/cars' element={<Car />} />
+              <Route path="/todo" element={<Todo />} />
+            </Routes>
+          </Router>
+        </Provider>
         {/* <Footer /> */}
       </div>
     );
