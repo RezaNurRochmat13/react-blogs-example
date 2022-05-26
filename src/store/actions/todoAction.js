@@ -4,3 +4,10 @@ export const addTodo = data => {
         payload: data
     });
 }
+
+export const delTodo = data => {
+    return({
+      type: "DEL",
+      payload: data
+    });
+}
