@@ -16,6 +16,7 @@ import Home from './components/Home';
 import Todo from './components/todo/Todo';
 import { Provider } from "react-redux";
 import store from "./store";
+import Chat from './components/chat';
 
 // Class component
 function App() {
@@ -49,6 +50,7 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path='/cars' element={<Car />} />
               <Route path="/todo" element={<Todo />} />
+              <Route path="/chat" element={<Chat />} />
             </Routes>
           </Router>
         </Provider>
