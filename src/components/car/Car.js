@@ -26,14 +26,18 @@ export default class Car extends Component {
     }
 
     createNewPosts = () => {
-        const postPayload = {
-            title: 'Lorem ipsum',
-            body: '-',
-            userId: 1
-        };
+        const formData = new FormData();
+        formData.append("nama", "BMW");
+        formData.append("sewa", 200000);
+        formData.append("foto", this.state.files);
+        formData.append("ukuran", "small");
 
-        axios.post('https://jsonplaceholder.typicode.com/posts',
-         postPayload).then(response => {
+        axios.post('http://localhost:8989/cars',
+         formData, {
+             headers: {
+                 Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImVtYWlsIjoicmFmaUByb2NrZXRtYWlsLmNvbSIsInJvbGUiOiJzdXBlcmFkbWluIiwiaWF0IjoxNjU0MDczMjUyLCJleHAiOjE2NTQxMzMyNTJ9.IBsCSoSzVoCjN3y43lPNQWUCsP3jNHBCVeztarFvbGs'
+             }
+         }).then(response => {
             console.info(response.data);
         }).catch(err => {
             console.error(err);
@@ -61,6 +65,7 @@ export default class Car extends Component {
     uploaderFile = (e) => {
         const formData = new FormData();
         formData.append('file', e.target.files[0]);
+        this.setState({files: e.target.files[0]});
 
         console.info("Files : ", e);
         console.info("Only file :", e.target.files[0]);
